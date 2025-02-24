@@ -15,3 +15,10 @@ mongoose
 .connect(MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
 .then(()=> console.log ("MongoDB Connected"))
 .catch((err)=> console.error("MongoDB Connection Failed"))
+
+const bookRoutes = require("./routes/bookRoutes");
+app.use("/api/books", bookRoutes);
+
+app.listen(PORT, ()=>{
+    console.log(`Server is running on ${PORT}`) ;
+});
